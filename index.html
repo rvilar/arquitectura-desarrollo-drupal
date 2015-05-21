@@ -76,16 +76,16 @@
                     </section>
                     <section>
                         <h2>As a developer, I would like...</h2>
-                        <p>Cómo equipo de desarrollo, si hiciesemos una carta a los reyes, nos gustaría que se cumplieran una serie de requisitos:</p>
+                        <p>Como equipo de desarrollo, si hiciésemos una carta a los reyes, nos gustaría:</p>
                         <ul>
                             <li>Código versionado</li>
                             <li>Despliegues automatizados</li>
                             <li>Pruebas automatizadas</li>
-                            <li>Fácil de probar manualmente por quien sea</li>
+                            <li>Fácil de probar manualmente</li>
                             <li>Que todo el equipo tenga conocimiento de todo el código</li>
                             <li>Fácilmente mantenible</li>
                         </ul>
-                        <p>Y todo <em>de forma transparente a nosotros</em> XD</p>
+                        <p>Y todo <em>de forma transparente a nosotros</em></p>
                     </section>
                     <section>
                         <h2>Esto es una utopía?</h2>
@@ -116,8 +116,9 @@
                     <section>
                         <h2>Cuál es nuestra finalidad</h2>
                         <ul>
-                            <li>Nuestra finalidad primera es que nuestro proyecto se pueda instalar de un entorno a otro sin requerir ninguna tarea manual</li>
-                            <li>Esto implica trabajar siempre con código y tener todas y cada una de las funcionalidades en nuestro código (ya sea con features o de otras formas que veremos más tarde)</li>
+                            <li>Nuestro proyecto debe poderse instalar de un entorno a otro sin requerir ninguna tarea manual</li>
+                            <li>Esto implica trabajar siempre con código</li>
+                            <li>Toda configuración y funcionalidad debe residir en el código y no en base de datos (features y código de instalación)</li>
                         </ul>
                     </section>
                     <section>
@@ -140,16 +141,15 @@
                             <li>Debemos pensar en una forma de encapsular nuestro desarrollo y hacer fácil el flujo</li>
                             <li>Los perfiles de instalación son una herramienta Drupal nacida para ello</li>
                             <li>Instalar el proyecto es tan fácil como instalar el perfil</li>
-                            <li>Más tarde veremos como estructurar nuestro desarrollo</li>
                         </ul>
                     </section>
                     <section>
                         <h2>Makefile</h2>
                         <ul>
-                            <li>Nos permite tener una documentación rápida de los módulos, temas y librerías usadas</li>
-                            <li>Nos permite identificar rápidamente las versiones que usamos y los patches aplicados</li>
-                            <li>Nos evita tener código duplicado en nuestro repositoria</li>
-                            <li>Y asegura a nuestro cliente que no hemos modificador ningún contrib "a saco"</li>
+                            <li>Documentación rápida de los módulos, temas y librerías usadas</li>
+                            <li>Identificación rápida de las versiones usadas y los patches aplicados</li>
+                            <li>Evita tener código duplicado en nuestro repositorio</li>
+                            <li>Asegura a nuestro cliente que no hemos modificado ningún contrib</li>
                         </ul>
                     </section>
                 </section>
@@ -172,7 +172,7 @@
                             <li>Para asegurarnos que toda la configuración está en código, debemos instalar nuestra aplicación a menudo</li>
                             <li>Desplegar nuestra aplicación en un nuevo entorno es algo tan sencillo cómo:</li>
                         </ul>
-                        <p><code>drush si &lt;profile&gt;</code></p>
+                        <p><code>drush site-install &lt;profile&gt;</code></p>
                     </section>
                     <section>
                         <h2>Flujo de actualización</h2>
@@ -181,8 +181,8 @@
                             <li>Debemos pasar a un flujo de actualización usando features como hasta ahora pero pasando a usar <code>hook_update_N()</code> cuando se requiera</li>
                             <li>Para hacer nuevos despliegues, hay que actualizarla, y por tanto hacer:</li>
                         </ul>
-                        <p><code>drush updb -y</code></p>
-                        <p><code>drush fra -y</code></p>
+                        <p><code>drush updatedb -y</code></p>
+                        <p><code>drush features-revert-all -y</code></p>
                     </section>
                 </section>
 
@@ -194,8 +194,8 @@
                         <h2>Divide y vencerás</h2>
                         <ul>
                             <li>Trabajar con metodologías ágiles es un <em>win</em></li>
-                            <li>Cómo desarrolladores, dividimos cada história de usuario en tareas</li>
-                            <li>Durante el desarrollo, una tarea equivale a un commit (cuanto más unitario, más fácil de revisar)</li>
+                            <li>Dividimos cada história de usuario en tareas</li>
+                            <li>Una tarea equivale a un commit (cuanto más unitario, más fácil de revisar)</li>
                         </ul>
                     </section>
                     <section>
@@ -248,7 +248,7 @@
                         <h2>Traducciones de cadenas</h2>
                         <ul>
                             <li>Debemos usar siempre cadenas en inglés</li>
-                            <li>Usando la suite <code>i18n</code> podemos traducir y exportar fácilmente las traducciones</li>
+                            <li>La suite <code>i18n</code> permite traducir y exportar fácilmente las traducciones</li>
                             <li>Tendremos un directorio <code>/translations</code> en nuestro perfil de instalación con las traducciones de las cadenas necesarias</li>
                             <li>Nuestro proceso de instalación importará todas las traducciones una vez instalados todos los módulos y features</li>
                         </ul>
@@ -264,11 +264,11 @@
                         <ul>
                             <li>En un entorno ágil, cómo desarrolladores, debemos facilitar un entorno de pruebas a nuestro PO, que a su vez, deberá poder hacer demos a cliente</li>
                             <li>Si en nuestro flujo de desarrollo instalamos en cada despliegue, cómo podemos proveer de contenido de forma fácil para que se puedan hacer las pruebas?</li>
-                            <li>Para ello nace <a href="https://github.com/Ymbra/migrate_default_content/">migrate_default_contet</a></li>
+                            <li>Para ello nace <a href="https://github.com/Ymbra/migrate_default_content/">migrate_default_content</a></li>
                         </ul>
                     </section>
                     <section>
-                        <h2>migrate_default_contet</h2>
+                        <h2>migrate_default_content</h2>
                         <ul>
                             <li>Módulo basado en Migrate para crear contenido de prueba</li>
                             <li>API sencilla para crear migraciones de nuevos tipos de contenido, términos, menús, etc.</li>
@@ -323,8 +323,8 @@
                     <section>
                         <h2>Larga vida a las <em>builds</em></h2>
                         <ul>
-                            <li>Cuando lanzamos nuestras tareas de construcción en cada entorno, podemos aprovechar para lanzar otras cosas</li>
-                            <li>Nosotros aprovechamos para, por ejemplo, lanzar tests, sacar estadísticas sobre coding standards, revisar la calidad del código, etc.</li>
+                            <li>Al lanzar nuestras tareas de construcción en cada entorno, podemos aprovechar para lanzar otras cosas</li>
+                            <li>Nosotros lanzamos tests, sacamos estadísticas sobre coding standards, revisamos la calidad del código, etc.</li>
                             <li>Lo hace una máquina, así que aprovechad para darle trabajo</li>
                             <li>Pero no nos pasemos que una <em>build</em> larga puede llegar a ser un cuello de botella</li>
                         </ul>
@@ -341,16 +341,16 @@
                             <li>Desde una tarea debo tener enlazado el commit que la resuelve para futuras revisiones</li>
                             <li>Eso es fácil usando algunas herramientas, pero sobretodo, documentando bien</li>
                             <li>Por ejemplo, en nuestro mensaje de commit, debemos incluir el identificador de la tarea</li>
-                            <li>Redmine y jenkins tienen plugins para integrarse entre sí y con nuestro repositorio y facilitar así la nevegación entre ellos</li>
+                            <li>Redmine y jenkins tienen plugins para integrarse entre sí y con nuestro repositorio y facilitar la nevegación entre ellos</li>
                         </ul>
                     </section>
                     <section>
                         <h2>Revisión de código</h2>
                         <ul>
-                            <li>Incluir revisión de código es una de las mejores prácticas que hemos añadido en estos últimos tiempos</li>
+                            <li>Incluir revisión de código es una de las mejores prácticas que hemos añadido en nuestro proceso</li>
                             <li>Mejora la calidad del código, el control de errores,...</li>
-                            <li>Pero sobretodo ayuda a mejorar como desarrollador y aprender mucho de todos</li>
-                            <li>Y facilita la propiedad del código por parte de todo el equipo, no sólo por parte de la persona que lo desarrolla</li>
+                            <li>Ayuda a mejorar como desarrollador y a aprender mucho de todos</li>
+                            <li>Facilita la propiedad del código por parte de todo el equipo, no sólo por parte de la persona que lo desarrolla</li>
                         </ul>
                     </section>
                     <section>
@@ -361,6 +361,16 @@
                             <li>Definir cada una de las funcionalidades, dividirlas, pero sobretodo discutirlas, hace que se entienda mucho más el proyecto y se puedan prevenir errores</li>
                         </ul>
                     </section>
+                </section>
+
+                <section>
+                    <h2>Futuro</h2>
+                    <ul>
+                        <li>Crear un entorno por cada commit</li>
+                        <li>Máquinas virtuales</li>
+                        <li>Aplicar agile en el proceso de diseño</li>
+                        <li>... somos mentes inquietas y nunca paramos de pensar en como mejorar</li>
+                    </ul>
                 </section>
 
                 <section>
